@@ -1,0 +1,39 @@
+
+<!-- decrement the "sec" variable every 999ms.
+if sec was different than 0s then take the sec value and put it the span with the id "sec".
+else (which is if sec==0s) then sec=59 and min--, then take the "min" variable and put its value on the span with the id "min -->
+
+<html lang="en">
+<head>
+    <title>JavaScript Timer</title>
+</head>
+<body>
+    <div>
+        <span id="min">00</span>:<span id="sec">00</span>
+    </div> 
+<script>
+var sec=0; var min=10;
+    var secLab=document.getElementById('sec');
+    var minLab=document.getElementById('min');
+    setInterval(() => {
+        if(sec!=0){
+            sec--;
+            if(sec<10) secLab.innerHTML='0'+sec;
+            else secLab.innerHTML=sec;
+        }else{
+            min--;
+            if(min<10) minLab.innerHTML='0'+min;
+            else minLab.innerHTML=min;
+            sec=59;
+        }
+    },999);
+</script>
+  </body>
+</html>
+
+
+
+<!-- If  we want to start the timer after a delay lets say 5s, all we need to do is add setTimeout(timer(),5000),
+timer() is a function that contain the code above.
+
+If we want tot stop the timer: clearInterval(Interval_ID); -->
