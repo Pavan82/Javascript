@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <title>JavaScript Timer</title>
+</head>
+<body>
+    <div>
+        <span id="min">00</span>:<span id="sec">00</span>
+    </div> 
+<script>
+var sec=min=0;
+    var secLab=document.getElementById('sec');
+    var minLab=document.getElementById('min');
+    setInterval(() => {
+        if(sec!=59){
+            sec++;
+            if(sec<10) secLab.innerHTML='0'+sec;
+            else secLab.innerHTML=sec;
+        }else{
+            min++;
+            if(min<10) minLab.innerHTML='0'+min;
+            else minLab.innerHTML=min;
+            sec=0;
+        }
+    },999);
+</script>
+  </body>
+</html>
+
+
+<!-- As you can see we've used "setInterval" method which is gonna execute that same inner code every 999ms (1s-1ms).
+
+What that inner code does is:
+increment the "sec" variable every 999ms.
+if sec was different than 59s then take the sec value and put it the span with the id "sec".
+else (which is if sec==59s) then sec=0 and min++, then take the "min" variable and put its value on the span with the id "min". -->
