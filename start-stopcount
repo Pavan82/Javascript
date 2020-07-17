@@ -1,0 +1,82 @@
+<html>
+	<body>
+
+		<button onclick="startCount()">Start count!</button>
+		<input type="text" id="txt">
+		<button onclick="stopCount()">Stop count!</button>
+
+		<p>
+			Click on the "Start count!" button above to start the timer 
+			</br> Click on the "Stop count!" button to stop the counting.
+		</p>
+
+		<script>
+			let count = 0;
+			let time;
+			let timer_flag = 0;
+
+			function timedCount() {
+	  			document.getElementById("txt").value = count;
+	  			count = count + 1;
+	  			time = setTimeout(timedCount, 1000);
+			}
+
+			function startCount() {
+	  			if (!timer_flag) {
+	    			timer_flag = 1;
+	    			timedCount();
+	  			}
+			}
+
+			function stopCount() {
+	  			clearTimeout(time);
+	  			timer_flag = 0;
+			}
+		</script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <body>
+    Demonstrating clearInterval for displaying/Stopping a clock in javascript:
+  
+    <p id="txt"></p>
+
+    <button onclick="stopWatch()">Stop Timer</button>
+
+    <script>
+      const myInterval = setInterval(myTimer, 1000);
+
+      function myTimer() {
+        const date = new Date();
+        const time = date.toLocaleTimeString();
+        document.getElementById("txt").innerHTML = time;
+      }
+
+      function stopWatch() {
+        clearInterval(myInterval);
+      }
+    </script>
+
+  </body>
+</html>
